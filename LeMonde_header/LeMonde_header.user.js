@@ -2,7 +2,7 @@
 // @name        LeMonde (Une)
 // @namespace   qeole
 // @include     http://www.lemonde.fr/
-// @version     1.0.1
+// @version     1.0.2
 // @grant       none
 // ==/UserScript==
 
@@ -32,4 +32,7 @@ h.insertBefore(a,h.firstChild);
 let abo = document.getElementById("bt_recrut_abo");
 if (abo) abo.parentNode.removeChild(abo);
 let abo = document.getElementById("appel_jelec");
+if (abo) abo.parentNode.removeChild(abo);
+// Section « Exclusivités Lecteurs »
+let abo = document.getElementsByClassName("global audience ombre_section promo bordt3")[0];
 if (abo) abo.parentNode.removeChild(abo);
