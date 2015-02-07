@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        GitHub remove "edit profile" protip
 // @namespace   qeole
-// @include     https://github.com/Qeole
+// @include     https://github.com/Qeole*
 // @version     1.0.0
 // @grant       none
 // ==/UserScript==
