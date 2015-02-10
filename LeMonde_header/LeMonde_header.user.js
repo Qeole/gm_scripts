@@ -2,7 +2,7 @@
 // @name        LeMonde (Une)
 // @namespace   qeole
 // @include     http://www.lemonde.fr/
-// @version     1.0.2
+// @version     1.0.3
 // @grant       none
 // ==/UserScript==
 
@@ -27,6 +27,10 @@ let a = document.createElement("a");
 a.className="logo_lm_small";
 a.href="/";
 h.insertBefore(a,h.firstChild);
+
+// Appel à témoins
+let bloc = document.getElementsByClassName("bloc_base bloc_appel")[0];
+if (bloc) bloc.parentNode.removeChild(bloc);
 
 // Abonnement
 let abo = document.getElementById("bt_recrut_abo");
