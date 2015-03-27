@@ -2,7 +2,7 @@
 // @name        LeMonde (Une)
 // @namespace   qeole
 // @include     http://www.lemonde.fr/
-// @version     1.0.3
+// @version     1.0.4
 // @grant       none
 // ==/UserScript==
 
@@ -15,7 +15,12 @@ conteneur_haut.removeChild(document.getElementsByClassName('pub pub_oreille adro
 let logo  = conteneur_haut.childNodes[3].childNodes[1];
 let updte = conteneur_haut.childNodes[3].childNodes[3];
 // updte.style = "min-height: 20px;line-height: 20px;float: left;margin: 7px 20px 0px;color: #747B83;font-weight: bold;font-size: 12px;"
-updte.style = "margin: 7px 20px 0px; font-weight: bold;"
+updte.style = "margin: 7px 20px 0px; font-weight: bold;";
+
+let tcells = document.getElementsByClassName("tcell")
+for (let i = 0; i < tcells.length; i++) {
+  tcells[i].style = "width: 500px;";
+}
 
 b.parentNode.removeChild(b);
 
