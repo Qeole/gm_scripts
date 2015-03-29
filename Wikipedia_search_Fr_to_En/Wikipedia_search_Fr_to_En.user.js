@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name        Wikipedia search Fr to En
+// @name        Wikipedia switch search
 // @namespace   qeole
-// @description Add a ”Rechercher en anglais” button to Wikipédia:Fr search page
-// @include     https://fr.wikipedia.org/wiki/*?search=*
-// @include     https://fr.wikipedia.org/w/index.php?search=*
-// @version     1.0.0
+// @description Add a button to Wikipédia :Fr or :En search page to swith project
+// @include     https://*.wikipedia.org/wiki/*?search=*
+// @include     https://*.wikipedia.org/w/index.php?search=*
+// @version     1.1.0
 // @grant       none
 // ==/UserScript==
 
@@ -15,18 +15,20 @@ let parent = document.getElementById("mw-search-top-table");
 let span = document.createElement("span");
 span.style="margin-left:1em;";
 
-function searchInEnglish () {
+function searchInOtherLang () {
   let query = window.location.toString();
+  let lang  = query.slice("https://".length,"https://".length+2);
   query = query.slice(query.indexOf("=")+1, query.indexOf("&"));
-  window.location = 'https://en.wikipedia.org/w/index.php?search=' + query;
+  window.location = 'https://' + (lang == 'en' ? 'fr' : 'en') +
+    '.wikipedia.org/w/index.php?search=' + query;
 }
   
 let div = document.createElement("div");
 div.className="mw-ui-button mw-ui-progressive";
 div.style="padding:5px;"
-div.appendChild(document.createTextNode("Rechercher en anglais"));
+div.appendChild(document.createTextNode("Rechercher dans l'autre langue"));
 
-div.addEventListener("click", searchInEnglish);
+div.addEventListener("click", searchInOtherLang);
 
 parent.insertBefore(span, plug);
 parent.insertBefore(div, plug);
